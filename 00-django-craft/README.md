@@ -31,15 +31,15 @@ python manage.py runserver 0.0.0.0:8000
 
 ## Mini ejercicios
 
-[] Revisar settings y buscar en la documentación aquellas variables que desconozcamos
-[] Crear una vista que diga hola mundo, creando una plantilla html
-[] Crear una vista JSON
-[] Crear un modelo, generar migraciones y ejecutarlas
-[] Añadir el modelo al admin
-[] Crear un formulario
-[] Crear vista que interactue con el formulario
-[] Crear un commando
-[] Crear modelos dado un diagrama ER más complejo
+- [] Revisar settings y buscar en la documentación aquellas variables que desconozcamos
+- [] Crear una vista que diga hola mundo, creando una plantilla html
+- [] Crear una vista JSON
+- [] Crear un modelo, generar migraciones y ejecutarlas
+- [] Añadir el modelo al admin
+- [] Crear un formulario
+- [] Crear vista que interactue con el formulario
+- [] Crear un commando
+- [] Crear modelos dado un diagrama ER más complejo
 
 
 ## Guión Docker
