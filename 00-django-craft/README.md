@@ -3,7 +3,7 @@
 
 ## Guión virtualenv
 
-``bash
+```bash
 
 # Crear nuevo virtualenv
 virtualenv venv
@@ -26,7 +26,7 @@ python manage.py migrate
 
 # Iniciar servidor web
 python manage.py runserver 0.0.0.0:8000
-``
+```
 
 
 ## Mini ejercicios
@@ -44,8 +44,8 @@ python manage.py runserver 0.0.0.0:8000
 
 ## Guión Docker
 
-``bash
+```bash
 make newproject
 make newapp name=todo
 make up
-``
+```
