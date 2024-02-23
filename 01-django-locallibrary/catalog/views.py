@@ -35,12 +35,24 @@ def index(request):
 from django.views import generic
 
 
+# def book_list(request):
+#   books = Book.objects.all()
+#   paginator = Paginator(books, 10)  # Si deseas paginación
+#   page_number = request.GET.get('page')
+#   page_obj = paginator.get_page(page_number)
+#
+#   return render(request, 'book_list.html', {'page_obj': page_obj})
+
 class BookListView(generic.ListView):
     """Generic class-based view for a list of books."""
 
     model = Book
     paginate_by = 10
 
+
+# def book_detail(request, pk):
+#   book = Book.objects.get(pk=pk)
+#   return render(request, 'book_detail.html', {'book': book})
 
 class BookDetailView(generic.DetailView):
     """Generic class-based detail view for a book."""
@@ -178,6 +190,21 @@ def renew_book_librarian(request, pk):
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Author
+
+
+# def author_create(request):
+#   if not request.user.has_perm('catalog.add_author'):
+#     return HttpResponseForbidden("No tienes permiso para crear un autor.")
+#
+#   if request.method == 'POST':
+#     form = AuthorForm(request.POST)
+#     if form.is_valid():
+#       form.save()
+#       return HttpResponseRedirect(reverse_lazy('ruta_a_la_página_de_éxito'))
+#   else:
+#     form = AuthorForm(initial={"date_of_death": "11/11/2023"})
+#
+#   return render(request, 'nombre_de_la_plantilla.html', {'form': form})
 
 
 class AuthorCreate(PermissionRequiredMixin, CreateView):
