@@ -13,17 +13,13 @@ SECRET_KEY = config(
     default="Ye6cecVf3LY2l3cdIPU5eTwabInrm1ZKy7iaNHy5sFUGI5VwuV1wrHi1nxy0p89N",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [
-    "localhost",
-    "0.0.0.0",
-    "127.0.0.1"
-]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
 # Testing config..
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
 # Emailing config.
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 # CACHES
@@ -40,7 +36,7 @@ CACHES = {
 CELERY_TASK_EAGER_PROPAGATES = True
 
 if DEBUG is True:
-    SWAGGER_SETTINGS.update({'PERSIST_AUTH': True})
+    SWAGGER_SETTINGS.update({"PERSIST_AUTH": True})
 
 LOGGING = {
     "version": 1,

@@ -17,7 +17,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 # DATABASES
 # ------------------------------------------------------------------------------
-#DATABASES["default"] = config("DATABASE_URL", cast=db_url)  # noqa F405
+# DATABASES["default"] = config("DATABASE_URL", cast=db_url)  # noqa F405
 DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
 DATABASES["default"]["CONN_MAX_AGE"] = config("CONN_MAX_AGE", cast=int, default=60)  # noqa F405
 
@@ -57,10 +57,10 @@ X_FRAME_OPTIONS = "DENY"
 # Sentry
 # ------------------------------------------------------------------------------
 sentry_sdk.init(
-    dsn=config('SENTRY_DNS'),
+    dsn=config("SENTRY_DNS"),
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
-    send_default_pii=True
+    send_default_pii=True,
 )
 
 # Logging
@@ -78,17 +78,12 @@ LOGGING = {
         },
     },
     "loggers": {
-        "django": {
-            "handlers": ["file"],
-            "level": "INFO",
-            "propagate": True
-        },
+        "django": {"handlers": ["file"], "level": "INFO", "propagate": True},
     },
     "formatters": {
         "app": {
             "format": (
-                u"%(asctime)s [%(levelname)-8s] "
-                "(%(module)s.%(funcName)s) %(message)s"
+                "%(asctime)s [%(levelname)-8s] " "(%(module)s.%(funcName)s) %(message)s"
             ),
             "datefmt": "%Y-%m-%d %H:%M:%S",
         },

@@ -27,7 +27,7 @@ export class PhoneVerifyModalComponent
 
     user: any;
     sendEmail = false;
-    
+
     constructor(
         public permissionsFormService: PydrfpermissionsPydrfpermissionsFormService,
         public _fuseNavigationService: FuseNavigationService,

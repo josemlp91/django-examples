@@ -27,5 +27,5 @@
     ```sh
     (venv)$ python manage.py runserver
     ```
-   
+
 6. Navigate to [http://localhost:8000/](http://localhost:8000/).

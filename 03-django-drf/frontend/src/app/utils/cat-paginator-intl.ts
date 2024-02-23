@@ -2,7 +2,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 
 const catRangeLabel = (page: number, pageSize: number, length: number) => {
   if (length === 0 || pageSize === 0) { return `0 of ${length}`; }
-  
+
   length = Math.max(length, 0);
 
   const startIndex = page * pageSize;
@@ -22,6 +22,6 @@ export function getCatPaginatorIntl(): MatPaginatorIntl{
   paginatorIntl.nextPageLabel = 'Next page';
   paginatorIntl.previousPageLabel = 'Previous page';
   paginatorIntl.getRangeLabel = catRangeLabel;
-  
+
   return paginatorIntl;
 }

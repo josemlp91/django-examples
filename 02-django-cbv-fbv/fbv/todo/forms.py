@@ -6,8 +6,8 @@ from todo.models import Task
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ConfirmForm(forms.Form):
-    confirm = forms.BooleanField(label='Confirm')
+    confirm = forms.BooleanField(label="Confirm")

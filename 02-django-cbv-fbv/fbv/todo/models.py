@@ -7,7 +7,7 @@ class Task(models.Model):
     is_done = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        return f'/{self.pk}/'
+        return f"/{self.pk}/"
 
     def __str__(self):
-        return f'Task #{self.id}'
+        return f"Task #{self.id}"

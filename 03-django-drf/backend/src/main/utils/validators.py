@@ -11,7 +11,7 @@ class UppercaseValidator:
 
         raise ValidationError(
             _("Your password must contain at least one uppercase character"),
-            code='password_no_uppercase'
+            code="password_no_uppercase",
         )
 
     def get_help_text(self):
@@ -25,7 +25,7 @@ class LowercaseValidator:
 
         raise ValidationError(
             _("Your password must contain at least one lowercase character"),
-            code='password_no_lowercase'
+            code="password_no_lowercase",
         )
 
     def get_help_text(self):
@@ -39,7 +39,7 @@ class DigitValidator:
 
         raise ValidationError(
             _("Your password must contain at least one number"),
-            code='password_no_digit'
+            code="password_no_digit",
         )
 
     def get_help_text(self):
@@ -53,7 +53,7 @@ class SpecialCharValidator:
 
         raise ValidationError(
             _("Your password must contain at least one special character"),
-            code='password_no_special_char'
+            code="password_no_special_char",
         )
 
     def get_help_text(self):

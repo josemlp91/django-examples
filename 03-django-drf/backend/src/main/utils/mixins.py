@@ -7,9 +7,10 @@ class CreateOwnedModelMixin(CreateModelMixin):
     """
     Mixin used for models related through a foreign key to their owner
     """
+
     def create(self, request, *args, **kwargs):
         data = request.data
-        data['owner'] = request.user.active_profile
+        data["owner"] = request.user.active_profile
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)

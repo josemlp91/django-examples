@@ -22,10 +22,7 @@ schema_view = get_schema_view(
         default_version="0.1.0",
         description="Behold My Awesome Project",
         terms_of_service="example.com",
-        contact=openapi.Contact(
-            name="josemlp",
-            email="josemlp@example.com"
-        ),
+        contact=openapi.Contact(name="josemlp", email="josemlp@example.com"),
     ),
     validators=["flex", "ssv"],
     public=True,
@@ -34,14 +31,14 @@ schema_view = get_schema_view(
 
 
 router = DefaultRouter()
-router.register(r'todo', TodoViewSet)
+router.register(r"todo", TodoViewSet)
 
 urlpatterns = [
-    path('', admin.site.urls),
-    url(r'^api/', include(router.urls)),
-    url(r'^api/auth/', include('rest_auth.urls')),
-    url(r'^api/auth/signup/$', RegisterView.as_view(), name='rest_register'),
-    url(r'^ht/', include('health_check.urls')),
+    path("", admin.site.urls),
+    url(r"^api/", include(router.urls)),
+    url(r"^api/auth/", include("rest_auth.urls")),
+    url(r"^api/auth/signup/$", RegisterView.as_view(), name="rest_register"),
+    url(r"^ht/", include("health_check.urls")),
     url(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),

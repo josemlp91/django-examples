@@ -7,11 +7,10 @@ User = get_user_model()
 
 
 class CustomUserAdmin(BaseUserAdmin):
-
-    list_display = ('email', 'is_staff')
-    list_filter = ('is_staff',)
-    search_fields = ('email', )
-    ordering = ('email',)
+    list_display = ("email", "is_staff")
+    list_filter = ("is_staff",)
+    search_fields = ("email",)
+    ordering = ("email",)
     fieldsets = ()
     add_fieldsets = ()
     filter_horizontal = ()

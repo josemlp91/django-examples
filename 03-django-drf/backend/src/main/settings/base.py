@@ -13,13 +13,13 @@ APPS_DIR = ROOT_DIR.parent
 # Databases
 # ------------------------------------------------------------------------------
 DATABASES = {
-    'default': {
-        'ENGINE': "django.db.backends.mysql",
-        'NAME': config('MYSQL_DATABASE'),
-        'USER': config('MYSQL_USER'),
-        'PASSWORD': config('MYSQL_PASSWORD'),
-        'HOST': config('MYSQL_HOST'),
-        'PORT':  config('MYSQL_PORT'),
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config("MYSQL_DATABASE"),
+        "USER": config("MYSQL_USER"),
+        "PASSWORD": config("MYSQL_PASSWORD"),
+        "HOST": config("MYSQL_HOST"),
+        "PORT": config("MYSQL_PORT"),
     },
 }
 
@@ -27,10 +27,7 @@ DATABASES = {
 # ------------------------------------------------------------------------------
 REDIS_URL = config("REDIS_URL")
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": REDIS_URL
-    }
+    "default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": REDIS_URL}
 }
 
 
@@ -70,13 +67,13 @@ USE_TZ = True
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 DATABASES = {
-    'default': {
-        'ENGINE': "django.db.backends.mysql",
-        'NAME': config('MYSQL_DATABASE'),
-        'USER': config('MYSQL_USER'),
-        'PASSWORD': config('MYSQL_PASSWORD'),
-        'HOST': config('MYSQL_HOST'),
-        'PORT':  config('MYSQL_PORT'),
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config("MYSQL_DATABASE"),
+        "USER": config("MYSQL_USER"),
+        "PASSWORD": config("MYSQL_PASSWORD"),
+        "HOST": config("MYSQL_HOST"),
+        "PORT": config("MYSQL_PORT"),
     },
 }
 
@@ -97,17 +94,17 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
-    "django.contrib.sessions"
+    "django.contrib.sessions",
 ]
 
-HEALTH_CHECKS= [
+HEALTH_CHECKS = [
     "health_check",
     "health_check.db",
     "health_check.cache",
     "health_check.storage",
     "health_check.contrib.celery",
-    #"health_check.contrib.celery_ping",
-    #"health_check.contrib.redis"
+    # "health_check.contrib.celery_ping",
+    # "health_check.contrib.redis"
 ]
 
 
@@ -120,11 +117,10 @@ THIRD_PARTY_APPS = [
     "rest_auth",
     "rest_auth.registration",
     "djcelery_email",
-    
 ]
 
 LOCAL_APPS = [
-    'todo'
+    "todo"
     # Place your apps, here.
 ]
 
@@ -146,12 +142,12 @@ PASSWORD_HASHERS = [
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-        "OPTIONS": {
-            'min_length': 8
-        }
+        "OPTIONS": {"min_length": 8},
     },
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
 ]
@@ -165,9 +161,9 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'drf_yasg.middleware.SwaggerExceptionMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "drf_yasg.middleware.SwaggerExceptionMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
@@ -195,7 +191,7 @@ MEDIA_URL = "/media/"
 
 # STORAGES
 # ------------------------------------------------------------------------------
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 # EMAIL
 # ------------------------------------------------------------------------------
@@ -234,17 +230,17 @@ SMTP_CONFIG = {
         "port": EMAIL_PORT,
         "username": EMAIL_HOST_USER,
         "password": EMAIL_HOST_PASSWORD,
-        "use_tls": EMAIL_USE_TLS
+        "use_tls": EMAIL_USE_TLS,
     }
 }
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("josemlp@example.com", )]
+ADMINS = [("josemlp@example.com",)]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
-DATE_INPUT_FORMATS = ['%Y-%m-%d', 'iso-8601']
-DATETIME_INPUT_FORMATS = ['%Y-%m-%dT%H:%M:%S.%fZ', 'iso-8601']
+DATE_INPUT_FORMATS = ["%Y-%m-%d", "iso-8601"]
+DATETIME_INPUT_FORMATS = ["%Y-%m-%dT%H:%M:%S.%fZ", "iso-8601"]
 
 
 # TEMPLATES
@@ -282,35 +278,26 @@ TEMPLATES = [
 
 # Config rest framework
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES":
-        [
-            'rest_framework.authentication.TokenAuthentication'
-        ],
-    "DEFAULT_PERMISSION_CLASSES":
-        [
-            'rest_framework.permissions.IsAuthenticated'
-        ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication"
+    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
-    "DEFAULT_FILTER_BACKENDS":
-        [
-            "rest_framework.filters.SearchFilter",
-            "django_filters.rest_framework.DjangoFilterBackend",
-        ],
+    "DEFAULT_FILTER_BACKENDS": [
+        "rest_framework.filters.SearchFilter",
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "TEST_REQUEST_DEFAULT_FORMAT": "json",
     "PAGE_SIZE": 10,
-    "DATE_INPUT_FORMATS": ['%Y-%m-%dT%H:%M:%S.%fZ', 'iso-8601'],
-    "DATETIME_INPUT_FORMATS": ['%Y-%m-%d', 'iso-8601'],
+    "DATE_INPUT_FORMATS": ["%Y-%m-%dT%H:%M:%S.%fZ", "iso-8601"],
+    "DATETIME_INPUT_FORMATS": ["%Y-%m-%d", "iso-8601"],
     "UPLOADED_FILES_USE_URL": True,
 }
 
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'DRF Token': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
+    "SECURITY_DEFINITIONS": {
+        "DRF Token": {"type": "apiKey", "name": "Authorization", "in": "header"}
     }
 }
 
@@ -324,10 +311,6 @@ LANGUAGES = (
 
 # Folder to store translations
 LOCALE_PATHS = (os.path.join(APPS_DIR, "locale"),)
-
-
-
-
 
 
 # Celery
@@ -353,5 +336,3 @@ CELERY_TASK_TIME_LIMIT = 5 * 60
 CELERY_TASK_SOFT_TIME_LIMIT = 60
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#beat-scheduler
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
-
-
