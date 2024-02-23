@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: .
+    restart: unless-stopped
+    command: /start
+    volumes:
+      - ./app:/code
+    ports:
+      - "8000:8000"
