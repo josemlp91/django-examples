@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Hola{% endblock %}
+
+{% block content %}
+
+  {% if name %}
+    <p>Hola {{ name }}!! </p>
+  {%  else %}
+    <p>Hola desconocido</p>
+  {% endif %}
+
+  <ul>
+  {% for skill in skills %}
+    <li>{{ skill }}</li>
+  {% endfor %}
+  </ul>
+
+  {% load humanize %}
+  {{ 45000|intcomma }}
+
+  {% load static %}
+  <img src="{% static 'images/logo.png' %}" alt="My image">
+
+
+  {# Mensajes #}
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}

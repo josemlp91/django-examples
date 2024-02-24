@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Formulario Genérico{% endblock %}
+
+{% block content %}
+  {% if form %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+  {% else %}
+    <h1>¡Gracias, {{ name }} {{ email }}!</h1>
+    <p>Tu formulario ha sido enviado correctamente.</p>
+  {% endif %}
+
+{% endblock %}
+
+
+
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+{#    <div>#}
+{#        <label for="id_nombre">Nombre:</label>#}
+{#        <input type="text" name="nombre" id="id_nombre" value="{{ form.nombre.value }}">#}
+{#    </div>#}
+{#    <div>#}
+{#        <label for="id_correo">Correo electrónico:</label>#}
+{#        <input type="email" name="correo" id="id_correo" value="{{ form.correo.value }}">#}
+{#    </div>#}
+{#    <button type="submit">Enviar</button>#}
+{#</form>#}

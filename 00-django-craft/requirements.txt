@@ -1,5 +1,7 @@
 # Django
 # ------------------------------------------------------------------------------
 django==5.0.2  # https://www.djangoproject.com/
+whitenoise==6.5.0
 
+django_nose
 django-extensions

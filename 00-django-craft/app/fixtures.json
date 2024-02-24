@@ -1,0 +1,108 @@
+[
+  {
+    "model": "tasks.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Tag1"
+    }
+  },
+  {
+    "model": "tasks.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Tag2"
+    }
+  },
+  {
+    "model": "tasks.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Skill1"
+    }
+  },
+  {
+    "model": "tasks.skill",
+    "pk": 2,
+    "fields": {
+      "name": "Skill2"
+    }
+  },
+  {
+    "model": "tasks.worker",
+    "pk": 1,
+    "fields": {
+      "first_name": "Nombre1",
+      "last_name": "Apellido1",
+      "phone": "123456789",
+      "email": "correo1@example.com",
+      "user": null
+    }
+  },
+  {
+    "model": "tasks.worker",
+    "pk": 2,
+    "fields": {
+      "first_name": "Nombre2",
+      "last_name": "Apellido2",
+      "phone": "987654321",
+      "email": "correo2@example.com",
+      "user": null
+    }
+  },
+  {
+    "model": "tasks.customer",
+    "pk": 2,
+    "fields": {
+      "creation_datetime": "2024-02-25T12:00:00Z",
+      "last_update_datetime": "2024-02-25T12:00:00Z",
+      "company_name": "Empresa1",
+      "contact_person": "Contacto1",
+      "contact_phone": "111111111",
+      "contact_email": "contacto1@example.com"
+    }
+  },
+  {
+    "model": "tasks.project",
+    "pk": 1,
+    "fields": {
+      "creation_datetime": "2024-02-25T12:00:00Z",
+      "last_update_datetime": "2024-02-25T12:00:00Z",
+      "name": "Proyecto1",
+      "description": "Descripción del Proyecto1",
+      "manager": 1,
+      "members": [
+        1,
+        2
+      ],
+      "customer": 2
+    }
+  },
+  {
+    "model": "tasks.epic",
+    "pk": 1,
+    "fields": {
+      "creation_datetime": "2024-02-25T12:00:00Z",
+      "last_update_datetime": "2024-02-25T12:00:00Z",
+      "name": "Épica1",
+      "description": "Descripción de la Épica1",
+      "deadline": "2024-03-01",
+      "project": 1
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 1,
+    "fields": {
+      "creation_datetime": "2024-02-25T12:00:00Z",
+      "last_update_datetime": "2024-02-25T12:00:00Z",
+      "name": "Tarea1",
+      "description": "Descripción de la Tarea1",
+      "is_done": false,
+      "epic": 1,
+      "tags": [
+        1,
+        2
+      ]
+    }
+  }
+]
