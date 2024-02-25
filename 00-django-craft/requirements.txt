@@ -5,3 +5,4 @@ whitenoise==6.5.0
 
 django_nose
 django-extensions
+django-structlog
