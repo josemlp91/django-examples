@@ -4,9 +4,14 @@ from django.conf import settings
 class Tag(models.Model):
   name = models.CharField(max_length=140)
 
+  def __str__(self):
+    return f"Tag #{self.id} ({self.name})"
 
 class Skill(models.Model):
   name = models.CharField(max_length=140)
+
+  def __str__(self):
+    return f"Skill #{self.id} ({self.name})"
 
 
 class Worker(models.Model):
@@ -24,6 +29,8 @@ class Worker(models.Model):
 
     super().save(*args, **kwargs)
 
+  def __str__(self):
+    return f"Worker #{self.id} ({self.first_name} {self.last_name})"
 
 class Customer(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
@@ -35,7 +42,7 @@ class Customer(models.Model):
   contact_email = models.EmailField(max_length=140)
 
   def __str__(self):
-    return f"Customer #{self.id} ({self.name})"
+    return f"Customer #{self.id} ({self.company_name})"
 
 
 class Project(models.Model):
@@ -49,6 +56,9 @@ class Project(models.Model):
   members = models.ManyToManyField(Worker, related_name="projects")
   customer = models.ForeignKey(Customer, related_name="projects", null=True, on_delete=models.SET_NULL)
 
+  def __str__(self):
+    return f"Project #{self.id} ({self.name})"
+
 class Epic(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
   last_update_datetime = models.DateTimeField(auto_now=True)
@@ -59,6 +69,8 @@ class Epic(models.Model):
 
   project = models.ForeignKey(Project, related_name="epics", null=False, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return f"Epic #{self.id} ({self.name})"
 
 class Task(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
@@ -67,6 +79,7 @@ class Task(models.Model):
   name = models.CharField(max_length=128, unique=True)
   description = models.TextField(max_length=512, blank=True, null=True)
   is_done = models.BooleanField(default=False)
+  estimated_hours = models.IntegerField(default=0)
 
   epic = models.ForeignKey(Epic, related_name="tasks", null=False, on_delete=models.CASCADE)
   tags = models.ManyToManyField(Tag, blank=True)

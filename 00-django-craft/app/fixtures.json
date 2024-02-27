@@ -1,108 +1,206 @@
 [
-  {
-    "model": "tasks.tag",
-    "pk": 1,
-    "fields": {
-      "name": "Tag1"
+    {
+        "model": "tasks.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Frontend"
+        }
+    },
+    {
+        "model": "tasks.tag",
+        "pk": 2,
+        "fields": {
+            "name": "Backend"
+        }
+    },
+    {
+        "model": "tasks.skill",
+        "pk": 1,
+        "fields": {
+            "name": "HTML"
+        }
+    },
+    {
+        "model": "tasks.skill",
+        "pk": 2,
+        "fields": {
+            "name": "Python"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "!",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "dev1",
+            "first_name": "",
+            "last_name": "",
+            "email": "dev1@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-02-27T00:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "!",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "manager",
+            "first_name": "",
+            "last_name": "",
+            "email": "manager@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-02-27T00:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 1,
+        "fields": {
+            "first_name": "John",
+            "last_name": "Developer",
+            "phone": "123456789",
+            "email": "john@example.com",
+            "user": 1
+        }
+    },
+    {
+        "model": "tasks.worker",
+        "pk": 2,
+        "fields": {
+            "first_name": "Lala",
+            "last_name": "Manager",
+            "phone": "123456789",
+            "email": "lala@example.com",
+            "user": 2
+        }
+    },
+    {
+        "model": "tasks.worker_skills",
+        "fields": {
+            "worker": 1,
+            "skill": 1
+        }
+    },
+    {
+        "model": "tasks.worker_skills",
+        "fields": {
+            "worker": 1,
+            "skill": 2
+        }
+    },
+    {
+        "model": "tasks.worker_skills",
+        "fields": {
+            "worker": 2,
+            "skill": 2
+        }
+    },
+    {
+        "model": "tasks.customer",
+        "pk": 1,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "company_name": "TechCorp",
+            "contact_person": "Alice",
+            "contact_phone": "987654321",
+            "contact_email": "alice@example.com"
+        }
+    },
+    {
+        "model": "tasks.project",
+        "pk": 1,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "E-commerce Platform",
+            "description": "Building a robust e-commerce platform with user-friendly interface and secure payment processing.",
+            "manager": 2,
+            "members": [],
+            "customer": 1
+        }
+    },
+    {
+        "model": "tasks.epic",
+        "pk": 1,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "User Authentication",
+            "description": "Implement user authentication system with login, registration, and password recovery functionalities.",
+            "deadline": "2024-02-27",
+            "project": 1
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 1,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "Implement Login Page",
+            "description": "Design and develop the login page UI using HTML and CSS.",
+            "is_done": false,
+            "estimated_hours": 8,
+            "epic": 1,
+            "tags": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "tasks.epic",
+        "pk": 2,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "Product Catalog",
+            "description": "Develop product catalog with categories, filters, and search functionality.",
+            "deadline": "2024-03-15",
+            "project": 1
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 2,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "Design Category Page",
+            "description": "Create wireframes and design mockups for the category page.",
+            "is_done": false,
+            "estimated_hours": 12,
+            "epic": 2,
+            "tags": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 3,
+        "fields": {
+            "creation_datetime": "2024-02-27T00:00:00Z",
+            "last_update_datetime": "2024-02-27T00:00:00Z",
+            "name": "Implement Category Filters",
+            "description": "Develop filter functionality for browsing products by category.",
+            "is_done": false,
+            "estimated_hours": 20,
+            "epic": 2,
+            "tags": [
+                2
+            ]
+        }
     }
-  },
-  {
-    "model": "tasks.tag",
-    "pk": 2,
-    "fields": {
-      "name": "Tag2"
-    }
-  },
-  {
-    "model": "tasks.skill",
-    "pk": 1,
-    "fields": {
-      "name": "Skill1"
-    }
-  },
-  {
-    "model": "tasks.skill",
-    "pk": 2,
-    "fields": {
-      "name": "Skill2"
-    }
-  },
-  {
-    "model": "tasks.worker",
-    "pk": 1,
-    "fields": {
-      "first_name": "Nombre1",
-      "last_name": "Apellido1",
-      "phone": "123456789",
-      "email": "correo1@example.com",
-      "user": null
-    }
-  },
-  {
-    "model": "tasks.worker",
-    "pk": 2,
-    "fields": {
-      "first_name": "Nombre2",
-      "last_name": "Apellido2",
-      "phone": "987654321",
-      "email": "correo2@example.com",
-      "user": null
-    }
-  },
-  {
-    "model": "tasks.customer",
-    "pk": 2,
-    "fields": {
-      "creation_datetime": "2024-02-25T12:00:00Z",
-      "last_update_datetime": "2024-02-25T12:00:00Z",
-      "company_name": "Empresa1",
-      "contact_person": "Contacto1",
-      "contact_phone": "111111111",
-      "contact_email": "contacto1@example.com"
-    }
-  },
-  {
-    "model": "tasks.project",
-    "pk": 1,
-    "fields": {
-      "creation_datetime": "2024-02-25T12:00:00Z",
-      "last_update_datetime": "2024-02-25T12:00:00Z",
-      "name": "Proyecto1",
-      "description": "Descripción del Proyecto1",
-      "manager": 1,
-      "members": [
-        1,
-        2
-      ],
-      "customer": 2
-    }
-  },
-  {
-    "model": "tasks.epic",
-    "pk": 1,
-    "fields": {
-      "creation_datetime": "2024-02-25T12:00:00Z",
-      "last_update_datetime": "2024-02-25T12:00:00Z",
-      "name": "Épica1",
-      "description": "Descripción de la Épica1",
-      "deadline": "2024-03-01",
-      "project": 1
-    }
-  },
-  {
-    "model": "tasks.task",
-    "pk": 1,
-    "fields": {
-      "creation_datetime": "2024-02-25T12:00:00Z",
-      "last_update_datetime": "2024-02-25T12:00:00Z",
-      "name": "Tarea1",
-      "description": "Descripción de la Tarea1",
-      "is_done": false,
-      "epic": 1,
-      "tags": [
-        1,
-        2
-      ]
-    }
-  }
 ]
