@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from .forms import SimpleForm
+
 
 def index(request, name=None):
   context = {"name": name, "skills": ["python", "javascript", "docker", "mongo"]}
@@ -12,6 +13,7 @@ def index(request, name=None):
 def api(request, name=None):
   dict = {"name": name, "skills": ["python", "javascript", "docker", "mongo"]}
   return JsonResponse(dict, status=200)
+
 
 def myform(request):
   if request.method == 'POST':
@@ -25,8 +27,10 @@ def myform(request):
 
   return render(request, 'form.html', {'form': form})
 
+
 from .forms import TaskSimpleForm, TaskModelForm
 from .models import Task
+
 
 def create_task(request):
   if request.method == 'POST':
@@ -46,3 +50,19 @@ def create_task(request):
   else:
     form = TaskModelForm()
   return render(request, 'form.html', {'form': form})
+
+
+from django.core import serializers
+
+
+def list_tasks_api(request):
+  queryset = Task.objects.all()
+
+  data = serializers.serialize(
+    format="xml",
+    queryset=queryset,
+    fields=["name", "is_done", "description", "estimated_hours"]
+  )
+
+  # return JsonResponse([v.to_dict() for v in queryset], safe=False)
+  return HttpResponse(data, content_type="application/xml")

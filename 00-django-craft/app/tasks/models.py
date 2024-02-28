@@ -1,11 +1,13 @@
 from django.db import models
 from django.conf import settings
 
+
 class Tag(models.Model):
   name = models.CharField(max_length=140)
 
   def __str__(self):
     return f"Tag #{self.id} ({self.name})"
+
 
 class Skill(models.Model):
   name = models.CharField(max_length=140)
@@ -32,6 +34,7 @@ class Worker(models.Model):
   def __str__(self):
     return f"Worker #{self.id} ({self.first_name} {self.last_name})"
 
+
 class Customer(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
   last_update_datetime = models.DateTimeField(auto_now=True)
@@ -46,18 +49,19 @@ class Customer(models.Model):
 
 
 class Project(models.Model):
-
   creation_datetime = models.DateTimeField(auto_now_add=True)
   last_update_datetime = models.DateTimeField(auto_now=True)
   name = models.CharField(max_length=140)
   description = models.CharField(max_length=256)
 
-  manager = models.ForeignKey(Worker, related_name="projects_manager", null=True, default=None, on_delete=models.SET_NULL)
+  manager = models.ForeignKey(Worker, related_name="projects_manager", null=True, default=None,
+                              on_delete=models.SET_NULL)
   members = models.ManyToManyField(Worker, related_name="projects")
   customer = models.ForeignKey(Customer, related_name="projects", null=True, on_delete=models.SET_NULL)
 
   def __str__(self):
     return f"Project #{self.id} ({self.name})"
+
 
 class Epic(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
@@ -71,6 +75,7 @@ class Epic(models.Model):
 
   def __str__(self):
     return f"Epic #{self.id} ({self.name})"
+
 
 class Task(models.Model):
   creation_datetime = models.DateTimeField(auto_now_add=True)
@@ -86,14 +91,17 @@ class Task(models.Model):
 
   def __str__(self):
     return f"Task #{self.id} ({self.name})"
-#
 
-
-
-
-
-
-
-
-
-
+  #
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'creation_datetime': self.creation_datetime.isoformat(),
+      'last_update_datetime': self.last_update_datetime.isoformat(),
+      'name': self.name,
+      'description': self.description,
+      'is_done': self.is_done,
+      'estimated_hours': self.estimated_hours,
+      'epic_id': self.epic.id,
+      'tags': list(self.tags.values_list('name', flat=True))
+    }

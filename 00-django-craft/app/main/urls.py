@@ -27,10 +27,13 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("index/<str:name>", index, name="index"),
     path("index/", index, name="index"),
-    path("api/<str:name>", api, name="api"),
-    path("api/", api, name="api"),
-    path("simpleform/", myform, name="myform"),
+    path("myform/", myform, name="myform"),
     path("create_task/", create_task, name="create_task"),
+
+    # Cuidado con el orden de las rutas
+    path("api/list_tasks/", list_tasks_api, name="list_tasks_api"),
+    path("api/<str:name>/", api, name="api"),
+    path("api/", api, name="api"),
 
 ]
 
