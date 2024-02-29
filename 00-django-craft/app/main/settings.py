@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "django.contrib.humanize",
-    "tasks.apps.TasksConfig"
+    # "tasks",
+    # "tasks.apps.TasksConfig"
 ]
 
 MIDDLEWARE = [
