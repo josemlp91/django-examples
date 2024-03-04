@@ -13,7 +13,7 @@ from django.contrib import admin
 from rest_auth.registration.views import RegisterView
 from rest_framework.routers import DefaultRouter
 
-from todo.views import TodoViewSet
+from todo.views import *
 
 # drf-yasg
 schema_view = get_schema_view(
@@ -54,6 +54,7 @@ urlpatterns = [
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
+    path("celery-demo/", demo)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

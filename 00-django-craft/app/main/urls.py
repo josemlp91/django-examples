@@ -23,10 +23,19 @@ from django.conf import settings
 
 from tasks.views import *
 
+
+def trigger_error(request):
+  division_by_zero = 1 / 0
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+
     path("index/<str:name>", index, name="index"),
     path("index/", index, name="index"),
+
+
     path("myform/", myform, name="myform"),
     path("create_task/", create_task, name="create_task"),
 
@@ -34,6 +43,7 @@ urlpatterns = [
     path("api/list_tasks/", list_tasks_api, name="list_tasks_api"),
     path("api/<str:name>/", api, name="api"),
     path("api/", api, name="api"),
+    path('sentry-debug/', trigger_error),
 
 ]
 

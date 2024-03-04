@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "django.contrib.humanize",
-    # "tasks",
-    # "tasks.apps.TasksConfig"
+    "tasks.apps.TasksConfig"
 ]
 
 MIDDLEWARE = [
@@ -139,3 +138,17 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # UUIDField
+
+
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://fa9cbb09333f41a49e37034f7280a85e@o364258.ingest.sentry.io/5736576",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
